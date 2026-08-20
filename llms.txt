@@ -1,0 +1,13 @@
+# Hailed
+
+Hailed is an AI visibility agency that helps businesses measure and improve how they are discovered, understood, and recommended by AI systems.
+
+## Core services
+- AI visibility audits
+- Recommendation presence analysis
+- Entity, authority, relevance, and corroboration optimization
+- Ongoing AI visibility monitoring
+- AI discovery strategy for local and service businesses
+
+Website: https://hailed.agency
+Email: ben@hailed.agency
