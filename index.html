@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hailed — AI Visibility, Proven.</title>
+  <meta name="description" content="Hailed helps businesses understand whether AI systems can find, understand, and recommend them — then builds the visibility layer needed to improve those outcomes.">
+  <meta name="theme-color" content="#080807">
+  <link rel="canonical" href="https://hailed.agency/">
+  <style>
+    :root{
+      --bg:#080807;
+      --panel:#0d0c0a;
+      --panel2:#11100d;
+      --text:#eadfc9;
+      --muted:#8f8576;
+      --gold:#c48a2c;
+      --gold2:#e4bd6d;
+      --line:#5f4118;
+      --danger:#cf5541;
+      --shadow:0 24px 70px rgba(0,0,0,.45);
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:
+      radial-gradient(900px 700px at 10% 8%,rgba(128,74,10,.09),transparent 60%),
+      linear-gradient(180deg,#070706,#0b0a08 45%,#080807);
+      color:var(--text);font-family:var(--sans);min-height:100vh
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .wrap{max-width:1320px;margin:0 auto;padding:0 34px}
+    header{
+      position:sticky;top:0;z-index:30;
+      background:rgba(8,8,7,.88);backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(196,138,44,.18)
+    }
+    nav{height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{font-family:var(--serif);font-size:34px;letter-spacing:.22em;white-space:nowrap}
+    .tag{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold);margin-top:5px}
+    .navlinks{display:flex;gap:34px;align-items:center;color:#c9b996;font-size:13px;letter-spacing:.08em}
+    .navlinks a:hover{color:var(--gold2)}
+    .btn,.ghost{
+      border:1px solid var(--gold);padding:14px 22px;letter-spacing:.12em;text-transform:uppercase;
+      font-family:var(--mono);font-size:12px;cursor:pointer;transition:.2s ease
+    }
+    .btn{background:linear-gradient(90deg,#c88d2f,#e8c170,#c88d2f);color:#17110a;font-weight:800;box-shadow:0 10px 30px rgba(196,138,44,.15)}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+    .ghost{background:transparent;color:var(--gold2)}
+    .hero{display:grid;grid-template-columns:.9fr 1.25fr;gap:54px;padding:76px 0 34px;align-items:start}
+    .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--gold);margin-bottom:18px}
+    h1{font-family:var(--serif);font-weight:400;font-size:72px;line-height:.96;letter-spacing:-.03em;margin:0 0 24px;max-width:620px}
+    .lead{color:#b7aa96;font-size:18px;line-height:1.75;max-width:560px}
+    .proofgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:42px;border-top:1px solid rgba(196,138,44,.2);border-bottom:1px solid rgba(196,138,44,.2)}
+    .proof{padding:26px 22px 26px 0;border-right:1px solid rgba(196,138,44,.18)}
+    .proof:last-child{border-right:none;padding-left:22px}
+    .proof:nth-child(2){padding-left:22px}
+    .proof b{display:block;color:var(--gold2);font-family:var(--mono);font-size:12px;letter-spacing:.12em;margin-bottom:8px}
+    .proof span{display:block;color:#8f8576;line-height:1.55;font-size:13px}
+    .card{
+      background:linear-gradient(180deg,rgba(18,16,12,.96),rgba(10,9,8,.98));
+      border:1px solid rgba(196,138,44,.38);box-shadow:var(--shadow);border-radius:18px;padding:28px
+    }
+    .cardtitle{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}
+    .cardtitle h2{font-family:var(--mono);font-size:15px;letter-spacing:.16em;color:var(--gold2);margin:0;text-transform:uppercase}
+    .badge{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#d8b56c;border:1px solid rgba(196,138,44,.25);padding:7px 10px;border-radius:999px}
+    label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:#a89d8d;margin:0 0 9px}
+    .field{margin-bottom:18px}
+    input,textarea{
+      width:100%;border:1px solid rgba(196,138,44,.35);background:#0a0908;color:#e7ddcb;
+      padding:17px 18px;border-radius:8px;outline:none
+    }
+    input:focus,textarea:focus{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(196,138,44,.08)}
+    textarea{min-height:100px;resize:vertical}
+    .helper{font-size:12px;color:#756d62;text-align:center;margin-top:12px;line-height:1.5}
+    .sample{margin-top:22px;border-top:1px solid rgba(196,138,44,.2);padding-top:22px}
+    .samplehead{display:flex;gap:12px;align-items:center;color:var(--danger);font-family:var(--mono);letter-spacing:.14em;font-size:11px}
+    .sample h3{font-family:var(--serif);font-size:34px;font-weight:400;margin:12px 0 7px}
+    .sample p{color:#998d7c;line-height:1.7}
+    .samplebox{background:#090807;border:1px solid rgba(196,138,44,.22);padding:18px;border-radius:10px;color:#b5a995;line-height:1.65}
+    .samplebox strong{color:var(--gold2)}
+    .samplelabel{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#776f66;margin-bottom:8px}
+    .dossier{margin:30px 0 10px;display:grid;grid-template-columns:1.2fr repeat(4,1fr);border:1px solid rgba(196,138,44,.34);border-radius:16px;overflow:hidden;background:#0b0a08}
+    .dcell{padding:25px;border-right:1px solid rgba(196,138,44,.17);min-height:128px}
+    .dcell:last-child{border-right:none}
+    .seal{display:flex;gap:18px;align-items:center}
+    .sealmark{width:70px;height:70px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:36px;color:var(--gold2);box-shadow:inset 0 0 0 8px rgba(196,138,44,.07)}
+    .dlabel{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#8e8372;margin-bottom:9px;text-transform:uppercase}
+    .dvalue{font-family:var(--serif);font-size:24px}
+    .danger{color:var(--danger)}
+    section{padding:70px 0}
+    .sectiontitle{text-align:center;margin-bottom:36px}
+    .sectiontitle .eyebrow{margin-bottom:10px}
+    .sectiontitle h2{font-family:var(--serif);font-size:48px;font-weight:400;margin:0}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{border-top:1px solid rgba(196,138,44,.35);padding-top:18px}
+    .stepnum{font-family:var(--serif);font-size:32px;color:var(--gold2);margin-bottom:12px}
+    .step b{font-family:var(--mono);letter-spacing:.13em;color:var(--gold);font-size:12px}
+    .step p{color:#8f8576;line-height:1.65;font-size:14px}
+    .cta{
+      display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center;
+      padding:38px;border:1px solid rgba(196,138,44,.4);border-radius:18px;
+      background:linear-gradient(110deg,#0b0a08 0%,#151008 60%,#201407 100%);
+      box-shadow:var(--shadow)
+    }
+    .cta h2{font-family:var(--serif);font-size:46px;font-weight:400;margin:0 0 10px}
+    .cta p{color:#9b907f;line-height:1.7;margin:0}
+    .ctaactions{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+    .contact{display:none;margin-top:22px}
+    .contact.show{display:block}
+    .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .full{grid-column:1/-1}
+    .notice{margin-top:14px;color:#81776a;font-size:12px;line-height:1.6}
+    footer{border-top:1px solid rgba(196,138,44,.18);padding:30px 0 50px;color:#786f64;font-size:12px}
+    .footerrow{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    @media(max-width:1000px){
+      .hero{grid-template-columns:1fr;padding-top:48px}
+      h1{font-size:58px}
+      .dossier{grid-template-columns:1fr 1fr}
+      .dcell{border-bottom:1px solid rgba(196,138,44,.17)}
+      .steps{grid-template-columns:1fr 1fr}
+      .cta{grid-template-columns:1fr}
+      .navlinks a:not(.ghost){display:none}
+    }
+    @media(max-width:680px){
+      .wrap{padding:0 18px}
+      nav{height:76px}
+      .brand{font-size:26px}
+      .tag{font-size:8px}
+      .ghost{padding:11px 13px;font-size:10px}
+      .hero{padding-top:36px;gap:34px}
+      h1{font-size:47px}
+      .lead{font-size:16px}
+      .proofgrid{grid-template-columns:1fr}
+      .proof,.proof:nth-child(2),.proof:last-child{padding:18px 0;border-right:none;border-bottom:1px solid rgba(196,138,44,.14)}
+      .proof:last-child{border-bottom:none}
+      .card{padding:20px}
+      .sample h3{font-size:29px}
+      .dossier{grid-template-columns:1fr}
+      .dcell{border-right:none}
+      .steps{grid-template-columns:1fr}
+      .sectiontitle h2{font-size:38px}
+      .cta{padding:26px 20px}
+      .cta h2{font-size:36px}
+      .formgrid{grid-template-columns:1fr}
+      .full{grid-column:auto}
+      .footerrow{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" aria-label="Hailed home">
+        <span class="brand">HAILED</span>
+        <span class="tag">AI VISIBILITY, PROVEN.</span>
+      </a>
+      <div class="navlinks">
+        <a href="#approach">APPROACH</a>
+        <a href="#sample">SAMPLE</a>
+        <a href="#audit">AUDIT</a>
+        <a class="ghost" href="#audit">BOOK A BRIEFING →</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">AI VISIBILITY INTELLIGENCE</div>
+        <h1>Your customers are asking AI. We reveal the answer.</h1>
+        <p class="lead">Hailed helps businesses understand whether AI systems can find, understand, and recommend them — then builds the visibility layer required to improve those outcomes.</p>
+        <div class="proofgrid">
+          <div class="proof">
+            <b>REAL QUESTIONS</b>
+            <span>We test the kinds of non-branded questions customers actually ask.</span>
+          </div>
+          <div class="proof">
+            <b>UNBIASED INSIGHT</b>
+            <span>We look at what AI says — not what anyone hopes it says.</span>
+          </div>
+          <div class="proof">
+            <b>ACTIONABLE CLARITY</b>
+            <span>We turn visibility gaps into a focused growth plan.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="sample">
+        <div class="cardtitle">
+          <h2>AI Visibility Check</h2>
+          <div class="badge">PREVIEW WORKFLOW</div>
+        </div>
+        <div class="field">
+          <label for="business">BUSINESS NAME</label>
+          <input id="business" placeholder="Aspen Tree Roofing" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="question">WHAT WOULD A CUSTOMER ASK AI?</label>
+          <textarea id="question" placeholder="best roofing company in Lake Jackson"></textarea>
+        </div>
+        <button class="btn" id="requestBtn" style="width:100%">REQUEST MY VISIBILITY CHECK →</button>
+        <div class="helper">No automated AI result is generated on this page. Your request goes to Hailed for a real visibility review.</div>
+
+        <div class="sample">
+          <div class="samplehead">◉ SAMPLE RESULT</div>
+          <h3>Not included in this response.</h3>
+          <p>This example shows what a visibility gap can look like when AI recommends competitors instead.</p>
+          <div class="samplebox">
+            <div class="samplelabel">SAMPLE AI RESPONSE EXCERPT</div>
+            “For roofing in Lake Jackson, TX, well-regarded options include <strong>Gulf Coast Roofing & Construction</strong> and <strong>Brazoria Roofing Co.</strong>...”
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dossier" aria-label="Sample Hailed dossier">
+      <div class="dcell">
+        <div class="seal">
+          <div class="sealmark">H</div>
+          <div>
+            <div class="dlabel">HAILED DOSSIER</div>
+            <div class="dvalue">AI Visibility Verdict</div>
+          </div>
+        </div>
+      </div>
+      <div class="dcell">
+        <div class="dlabel">SAMPLE VERDICT</div>
+        <div class="dvalue danger">Visibility gap</div>
+      </div>
+      <div class="dcell">
+        <div class="dlabel">MENTIONED</div>
+        <div class="dvalue danger">No</div>
+      </div>
+      <div class="dcell">
+        <div class="dlabel">REVIEW TYPE</div>
+        <div class="dvalue">Manual audit</div>
+      </div>
+      <div class="dcell">
+        <div class="dlabel">NEXT STEP</div>
+        <div class="dvalue">Get your audit</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="sectiontitle">
+        <div class="eyebrow">HOW HAILED WORKS</div>
+        <h2>Visibility is engineered.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="stepnum">01</div>
+          <b>WE CHECK</b>
+          <p>We test how AI responds to real customer questions around your category, market, and services.</p>
+        </div>
+        <div class="step">
+          <div class="stepnum">02</div>
+          <b>WE ANALYZE</b>
+          <p>We identify the signals helping — or blocking — AI systems from understanding and recommending you.</p>
+        </div>
+        <div class="step">
+          <div class="stepnum">03</div>
+          <b>WE STRATEGIZE</b>
+          <p>We build a focused plan around authority, relevance, corroboration, and the visibility gaps that matter.</p>
+        </div>
+        <div class="step">
+          <div class="stepnum">04</div>
+          <b>WE ELEVATE</b>
+          <p>We implement, monitor, and improve the layer of visibility that traditional rankings alone do not capture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <div class="eyebrow">PRIVATE AI VISIBILITY REVIEW</div>
+          <h2>See how AI sees your business.</h2>
+          <p>Request a real review of your current visibility across customer-style AI searches. No automated score. No fabricated result. Just a clear view of where you stand.</p>
+        </div>
+        <div class="ctaactions">
+          <button class="btn" id="openForm">GET YOUR AUDIT →</button>
+          <a class="ghost" href="mailto:ben@hailed.agency?subject=Hailed%20AI%20Visibility%20Audit">EMAIL HAILED</a>
+        </div>
+      </div>
+
+      <div class="contact card" id="contactForm">
+        <div class="cardtitle"><h2>Request your visibility check</h2><div class="badge">PRIVATE REQUEST</div></div>
+        <div class="formgrid">
+          <div class="field">
+            <label for="name">YOUR NAME</label>
+            <input id="name" autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="email">EMAIL</label>
+            <input id="email" type="email" autocomplete="email" placeholder="you@company.com">
+          </div>
+          <div class="field full">
+            <label for="company">BUSINESS</label>
+            <input id="company" autocomplete="organization" placeholder="Business name">
+          </div>
+          <div class="field full">
+            <label for="customerQ">CUSTOMER-STYLE QUESTION</label>
+            <textarea id="customerQ" placeholder="What would a customer ask AI when looking for a business like yours?"></textarea>
+          </div>
+          <div class="full">
+            <button class="btn" id="sendAudit" style="width:100%">SEND AUDIT REQUEST →</button>
+            <div class="notice">This opens your email app with the request pre-filled and addressed to ben@hailed.agency. No form data is stored on this website.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footerrow">
+    <div>© <span id="year"></span> Hailed. AI Visibility, Proven.</div>
+    <div>ben@hailed.agency · hailed.agency</div>
+  </div>
+</footer>
+
+<script>
+  const $ = s => document.querySelector(s);
+  $("#year").textContent = new Date().getFullYear();
+
+  function showForm(prefill=false){
+    $("#contactForm").classList.add("show");
+    if(prefill){
+      const b=$("#business").value.trim();
+      const q=$("#question").value.trim();
+      if(b) $("#company").value=b;
+      if(q) $("#customerQ").value=q;
+    }
+    $("#contactForm").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  $("#requestBtn").addEventListener("click",()=>showForm(true));
+  $("#openForm").addEventListener("click",()=>showForm(false));
+
+  $("#sendAudit").addEventListener("click",()=>{
+    const name=$("#name").value.trim();
+    const email=$("#email").value.trim();
+    const company=$("#company").value.trim();
+    const question=$("#customerQ").value.trim();
+
+    if(!name || !email || !company){
+      alert("Add your name, email, and business name first.");
+      return;
+    }
+
+    const subject=`AI Visibility Audit Request — ${company}`;
+    const body=[
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Business: ${company}`,
+      ``,
+      `Customer-style AI question:`,
+      question || "(not provided)",
+      ``,
+      `Sent from hailed.agency`
+    ].join("\n");
+
+    window.location.href=`mailto:ben@hailed.agency?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
