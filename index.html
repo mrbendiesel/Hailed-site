@@ -7,6 +7,13 @@
   <meta name="description" content="Hailed helps businesses understand whether AI systems can find, understand, and recommend them — then builds the visibility layer needed to improve those outcomes.">
   <meta name="theme-color" content="#080807">
   <link rel="canonical" href="https://hailed.agency/">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PTZ287JFB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-6PTZ287JFB");
+  </script>
   <style>
     :root{
       --bg:#080807;
@@ -206,7 +213,7 @@
           <label for="question">WHAT WOULD A CUSTOMER ASK AI?</label>
           <textarea id="question" placeholder="best roofing company in Lake Jackson"></textarea>
         </div>
-        <button class="btn" id="requestBtn" style="width:100%">REQUEST MY VISIBILITY CHECK →</button>
+        <button class="btn" id="requestBtn" type="button" style="width:100%">REQUEST MY VISIBILITY CHECK →</button>
         <div class="helper">No automated AI result is generated on this page. Your request goes to Hailed for a real visibility review.</div>
 
         <div class="sample">
@@ -290,8 +297,8 @@
           <p>Request a real review of your current visibility across customer-style AI searches. No automated score. No fabricated result. Just a clear view of where you stand.</p>
         </div>
         <div class="ctaactions">
-          <button class="btn" id="openForm">GET YOUR AUDIT →</button>
-          <a class="ghost" href="mailto:ben@hailed.agency?subject=Hailed%20AI%20Visibility%20Audit">EMAIL HAILED</a>
+          <button class="btn" id="openForm" type="button">GET YOUR AUDIT →</button>
+          <a class="ghost" id="emailHailed" href="mailto:ben@hailed.agency?subject=Hailed%20AI%20Visibility%20Audit">EMAIL HAILED</a>
         </div>
       </div>
 
@@ -315,7 +322,7 @@
             <textarea id="customerQ" placeholder="What would a customer ask AI when looking for a business like yours?"></textarea>
           </div>
           <div class="full">
-            <button class="btn" id="sendAudit" style="width:100%">SEND AUDIT REQUEST →</button>
+            <button class="btn" id="sendAudit" type="button" style="width:100%">SEND AUDIT REQUEST →</button>
             <div class="notice">This opens your email app with the request pre-filled and addressed to ben@hailed.agency. No form data is stored on this website.</div>
           </div>
         </div>
@@ -335,6 +342,12 @@
   const $ = s => document.querySelector(s);
   $("#year").textContent = new Date().getFullYear();
 
+  function track(eventName, parameters={}){
+    if(typeof window.gtag === "function"){
+      window.gtag("event", eventName, parameters);
+    }
+  }
+
   function showForm(prefill=false){
     $("#contactForm").classList.add("show");
     if(prefill){
@@ -346,8 +359,17 @@
     $("#contactForm").scrollIntoView({behavior:"smooth",block:"start"});
   }
 
-  $("#requestBtn").addEventListener("click",()=>showForm(true));
-  $("#openForm").addEventListener("click",()=>showForm(false));
+  $("#requestBtn").addEventListener("click",()=>{
+    track("audit_form_open",{interaction_source:"visibility_check"});
+    showForm(true);
+  });
+  $("#openForm").addEventListener("click",()=>{
+    track("audit_form_open",{interaction_source:"audit_cta"});
+    showForm(false);
+  });
+  $("#emailHailed").addEventListener("click",()=>{
+    track("contact_email_click",{interaction_source:"homepage_audit"});
+  });
 
   $("#sendAudit").addEventListener("click",()=>{
     const name=$("#name").value.trim();
@@ -372,6 +394,10 @@
       `Sent from hailed.agency`
     ].join("\n");
 
+    track("audit_request_email_launch",{
+      interaction_source:"homepage_form",
+      question_provided:question ? 1 : 0
+    });
     window.location.href=`mailto:ben@hailed.agency?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 </script>

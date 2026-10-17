@@ -4,6 +4,13 @@
 <title>AI Visibility for Home Services | Hailed</title>
 <meta name="description" content="Hailed helps HVAC, roofing, plumbing, electrical, and foundation companies understand and improve how AI systems discover and recommend them.">
 <link rel="canonical" href="https://hailed.agency/ai-visibility-home-services">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PTZ287JFB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag("js",new Date());
+gtag("config","G-6PTZ287JFB");
+</script>
 <style>
 body{margin:0;background:#080807;color:#eadfc9;font-family:Arial,sans-serif}main{max-width:900px;margin:auto;padding:70px 24px}
 a{color:#d5a24d}h1,h2{font-family:Georgia,serif;font-weight:400}h1{font-size:56px;line-height:1.02}h2{font-size:34px;margin-top:46px}
@@ -23,6 +30,12 @@ p,li{color:#aea18f;line-height:1.8;font-size:17px}.ey{font-family:monospace;lett
 <li>Third-party corroboration and trust signals</li>
 <li>Ongoing visibility changes across relevant AI experiences</li>
 </ul>
-<div class="box"><h2 style="margin-top:0">See how AI sees your business.</h2><p>Request a private AI visibility review from Hailed.</p><a class="btn" href="mailto:ben@hailed.agency?subject=Home%20Services%20AI%20Visibility%20Audit">REQUEST AN AUDIT →</a></div>
+<div class="box"><h2 style="margin-top:0">See how AI sees your business.</h2><p>Request a private AI visibility review from Hailed.</p><a class="btn" id="requestAudit" href="mailto:ben@hailed.agency?subject=Home%20Services%20AI%20Visibility%20Audit">REQUEST AN AUDIT →</a></div>
 <p style="margin-top:44px"><a href="/">← Back to Hailed</a></p>
-</main></body></html>
+</main><script>
+document.querySelector("#requestAudit").addEventListener("click",()=>{
+  if(typeof window.gtag==="function"){
+    window.gtag("event","contact_email_click",{interaction_source:"home_services"});
+  }
+});
+</script></body></html>
